@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # thired party apps
-    "rest_framework" # new
+    "rest_framework", # new
+    "crosheaders", # new
     # Local APPs
     "accounts.apps.AccountsConfig",
     "posts.apps.PostsConfig",
@@ -54,12 +55,21 @@ REST_FRAMEWORK = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'crosheaders.middleware.CrosMiddleware',  # new
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# new
+CROS_ORIGIN_WHITELIST = (
+    "http://localhost:3000",
+    "http://localhost:8000",
+)
+
+CSR_TRUSTED_ORIGINS = ["http://localhost:3000"]
 
 ROOT_URLCONF = 'django_project.urls'
 
