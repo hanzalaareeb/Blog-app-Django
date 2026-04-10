@@ -2,24 +2,34 @@
 name = "configclass"
 version = "0.1.0"
 description = "New design for this project"
-authors = [
-    {name = "hanzalaareeb",email = "hanzalaareb@gmail.com"}
-]
-license = {text = "MIT"}
-readme = "README.md"
+authors = [{ name = "hanzalaareeb", email = "hanzalaareb@gmail.com" }]
 requires-python = ">=3.14"
+readme = "README.md"
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.14",
+]
 dependencies = [
     "django (>=6.0,<7.0)",
     "djangorestframework (>=3.16.1,<4.0.0)",
     "django-cors-headers (>=4.9.0,<5.0.0)",
-    "ruff (>=0.14.8,<0.15.0)"
+    "ruff (>=0.14.8,<0.15.0)",
+    "django-ninja>=1.6.2",
+    "psycopg2-binary>=2.9.11",
+    "dj-database-url>=3.1.2",
+    "python-dotenv>=1.2.2",
 ]
 
-
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["uv_build>=0.10.6,<0.11.0"]
+build-backend = "uv_build"
 
-[tool.poetry.group.dev.dependencies]
-black = "24.10.0"
-ruff = "0.14.8"
+[dependency-groups]
+dev = [
+    "black==24.10.0",
+    "ruff==0.14.8",
+]
+
+[tool.uv]
+package = false

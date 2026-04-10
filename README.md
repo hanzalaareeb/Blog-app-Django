@@ -1,47 +1,46 @@
-# Django Blog API
+# Django Async app
 
-This is a simple Blog API built using Django and Django REST Framework. It features user authentication and supports creating and managing blog posts. The API is designed with two main apps: **accounts** for user management and **posts** for handling blog content.
+New lets see what it will become.
 
 ## Features
 
 - User authentication
-- Create, read, update, and delete blog posts
-- Browsable API interface
-- CORS support with `django-cors-headers`
+- upload access files and find information.
+- fast asyc api, RAG sementic search pipline, and internal benchmarking.
 
 ## Getting Started
 
-Create python venv
+1. Ensure you have us installed, if not install using.
 
-```bash
-    python -m venv .venv
-```
+   ```bash
+   macOS/linux: curl -LsSf https://astral.sh | sh
+   Windows: powershell -c "irm https://astral.sh | iex"
+   ```
 
-activate env
+2. Clone the repository:
 
-```bash
-    source .venv/bin/activate
-```
+   ```bash
+   git clone https://github.com/hanzalaareeb/Blog-app-Django.git
+   ```
+
+3. run uv.
+
+   ```bash
+   uv sync
+   ```
+
+4. apply migrations
+
+   ```bash
+   uv run python manage.py migrate
+   ```
 
 ### Prerequisites
 
 - Python 3.x
 - Django 3.x or higher
 - Django REST Framework
-- django-cors-headers
-
-### Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/hanzalaareeb/Blog-app-Django.git
-   ```
-
-2. Run requierment.txt:
-   ```bash
-   pip install -r requirements.txt
-   ```
+- Django Ninja
 
 ## Future Updates
 
