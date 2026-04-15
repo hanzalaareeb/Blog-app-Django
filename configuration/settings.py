@@ -44,9 +44,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Local
     "core.apps.CoreConfig",
+    "user.apps.UserConfig",
     # Third-Party
     "rest_framework",
     "corsheaders",
+    "oauth2_provider",
 ]
 
 MIDDLEWARE = [
@@ -110,6 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'user.CustomUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/

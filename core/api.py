@@ -1,3 +1,7 @@
-from ninja import NinjaAPI
+from ninja import Router
 
-api = NinjaAPI()
+router = Router()
+
+@router.get("/health")
+def health(request):
+    return {"status": "core OK"}
