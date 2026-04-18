@@ -22,7 +22,7 @@ RUN pip install --no-cache-dir poetry
 COPY pyproject.toml poetry.lock* /code/
 
 # Install python dependencies
-RUN poetry install --without dev --no-root
+RUN uv add --without dev --no-root
 
 # Now copy rest of the project
 COPY . /code/
