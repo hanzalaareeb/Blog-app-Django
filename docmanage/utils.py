@@ -10,3 +10,4 @@ def calculate_hash(file):
 def process_document_task():
     """Not Defined
     """
+    pass

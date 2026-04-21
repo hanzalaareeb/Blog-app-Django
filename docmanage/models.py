@@ -12,7 +12,7 @@ class Document(models.Model):
     name = models.CharField(max_length=255)
     file = models.FileField(upload_to='documents/')
     file_type = models.CharField(max_length=10)
-    is_public = models.BooleanField(auto_now_add=True)
+    is_public = models.BooleanField(default=True)
     
     # deduplication Hash (SHA-256 of the file content)
     content_hash = models.CharField(max_length=64, unique=True, db_index=True)
@@ -21,4 +21,5 @@ class Document(models.Model):
 class DocumentChunk(models.Model):
     document = models.ForeignKey(Document, related_name='chunks', on_delete=models.CASCADE)
     content = models.TextField() # actual test segment
-    page_number = models.IntegerField(dimensions=1536)
+    page_number = models.IntegerField()
+    embedding = VectorField(dimensions=1536)
