@@ -30,7 +30,13 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "FALSE").lower() in ("true", "1", "yes")
 
-ALLOWED_HOSTS = []
+def get_list(env_var, default=None):
+    value = os.getenv(env_var)
+    if not value:
+        return default or []
+    return [item.strip() for item in value.split(",") if item.strip()]
+
+ALLOWED_HOSTS = get_list("ALLOWED_HOSTS", ["localhost"])
 
 
 # Application definition
@@ -146,4 +152,30 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.AllowAny",
     ],
+}
+
+
+# importing LOG
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "standard": {
+           "format": "%(asctime)s [%(levelname)s] %(name)s: %(messages)s"
+        },
+    },
+    
+    "handlers": {
+        "console":{
+        "class": "logging.StreamHandler",
+        "formatter": "standard",
+        },
+    },
+    
+    "root": {
+        "handlers": ["console"],
+        "level": LOG_LEVEL,
+    },
 }
