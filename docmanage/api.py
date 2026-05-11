@@ -6,6 +6,6 @@ from .utils import calculate_hash
 
 router = Router()
 
-@router.post("/upload", auth=GlobalAuth())
+"""@router.post("/upload", auth=GlobalAuth())
 async def upload_document(request, file: File[UploadedFile]):
-    pass
+    pass"""
